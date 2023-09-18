@@ -1,0 +1,23 @@
+{
+    "name": "VS C*de Censor",
+    "version": "0.0.1",
+    "manifest_version": 3,
+    "description": "Censor VS C*de in your browser",
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"],
+            "all_frames": true,
+            "match_origin_as_fallback": true,
+            "run_at": "document_start"
+        }
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "censor@vsc-de.dev"
+        },
+        "gecko_android": {
+            "id": "censor@vsc-de.dev"
+        }
+    }
+}

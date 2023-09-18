@@ -1,0 +1,6 @@
+{
+  "dependencies": {},
+  "devDependencies": {
+    "web-ext": "^7.7.0"
+  }
+}
