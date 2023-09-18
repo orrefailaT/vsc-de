@@ -1,6 +1,6 @@
 {
-    "name": "VS C*de Censor",
-    "version": "0.0.2",
+    "name": "VSC*de Censor",
+    "version": "0.0.3",
     "manifest_version": 2,
     "description": "Censor VS C*de in your browser",
     "content_scripts": [
