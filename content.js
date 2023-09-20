@@ -1,20 +1,21 @@
 const censorPattern = /(v(?:isual\s*?)?s(?:tudio\s*?)?\s*?c)o(de)/gi;
 
-/** @type {NodeFilter} */
+/**
+ * @type {NodeFilter}
+ */
 const notAllWhiteSpace = (node) => {
-    if (!/^\s*$/.test(node.data)) {
-        return NodeFilter.FILTER_ACCEPT;
-    }
+    return node instanceof Text && !/^\s*$/.test(node.data)
+        ? NodeFilter.FILTER_ACCEPT
+        : NodeFilter.FILTER_REJECT;
 };
 
 const mutationObserver = new MutationObserver((mutations) => {
-    console.log(mutations);
     mutations.forEach((value) => {
         censorNode(value.target);
     });
 });
 
-mutationObserver.observe(document, {
+mutationObserver.observe(document.body, {
     subtree: true,
     childList: true,
 });
