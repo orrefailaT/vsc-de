@@ -15,13 +15,12 @@ const mutationObserver = new MutationObserver((mutations) => {
     });
 });
 
-mutationObserver.observe(document.body, {
-    subtree: true,
-    childList: true,
-});
-
 document.addEventListener("DOMContentLoaded", (ev) => {
-    console.log(ev);
+    mutationObserver.observe(document.body, {
+        subtree: true,
+        childList: true,
+    });
+
     censorNode(document.body);
 });
 
@@ -36,7 +35,13 @@ function censorNode(node) {
     /** @type {Node | null} */
     let textNode;
     while ((textNode = walker.nextNode()) && textNode.textContent) {
-        textNode.textContent = censorText(textNode.textContent);
+        if (textNode.parentElement instanceof HTMLScriptElement) {
+            return;
+        }
+        const censoredText = censorText(textNode.textContent);
+        if (textNode.textContent !== censoredText) {
+            textNode.textContent = censoredText;
+        }
     }
 }
 
