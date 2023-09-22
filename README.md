@@ -3,7 +3,7 @@ Are you tired of being bombarded with the phrase "Visual Studio C\*de",
 in its various forms and fashions, while surfing the interwebs?
 
 Suffer no more! The Censor VS C\*de extension protects your eyes
-while you browse. Almost all occurences of VS C\*de, vsc\*de,
+while you browse. Almost all occurrences  of VS C\*de, vsc\*de,
 Visual Studio C\*de, and similar, will be replaced with a much more palatable, censored version.
 
 Currently only available for FireFox. Other browsers on the way!
