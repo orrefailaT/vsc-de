@@ -1,10 +1,11 @@
 const censorPattern = /(v(?:isual\s*?)?s(?:tudio\s*?)?\s*?c)o(de)/gi;
+const allWhitespacePattern = /^\s*$/;
 
 /**
  * @type {NodeFilter}
  */
 const notAllWhiteSpace = (node) => {
-    return node instanceof Text && !/^\s*$/.test(node.data)
+    return node instanceof Text && !allWhitespacePattern.test(node.data)
         ? NodeFilter.FILTER_ACCEPT
         : NodeFilter.FILTER_REJECT;
 };
